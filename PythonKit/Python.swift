@@ -617,7 +617,7 @@ public extension PythonObject {
     /// - Parameter args: Positional arguments for the Python callable.
     @discardableResult
     func dynamicallyCall(
-        withArguments args: [PythonConvertible] = []) -> PythonObject {
+        withArguments args: [PythonConvertible] = []) -> PythonObject? {
         return try? throwing.dynamicallyCall(withArguments: args)
     }
 
@@ -627,7 +627,7 @@ public extension PythonObject {
     @discardableResult
     func dynamicallyCall(
         withKeywordArguments args:
-        KeyValuePairs<String, PythonConvertible> = [:]) -> PythonObject {
+        KeyValuePairs<String, PythonConvertible> = [:]) -> PythonObject? {
         return try? throwing.dynamicallyCall(withKeywordArguments: args)
     }
 
@@ -636,7 +636,7 @@ public extension PythonObject {
     @discardableResult
     func dynamicallyCall(
         withKeywordArguments args:
-        [(key: String, value: PythonConvertible)] = []) -> PythonObject {
+        [(key: String, value: PythonConvertible)] = []) -> PythonObject? {
         return try? throwing.dynamicallyCall(withKeywordArguments: args)
     }
 }
