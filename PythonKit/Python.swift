@@ -618,7 +618,7 @@ public extension PythonObject {
     @discardableResult
     func dynamicallyCall(
         withArguments args: [PythonConvertible] = []) -> PythonObject {
-        return try? throwing.dynamicallyCall(withArguments: args) ?? PythonObject(stringLiteral: "")
+        return (try? throwing.dynamicallyCall(withArguments: args)) ?? PythonObject(stringLiteral: "PythonKitError")
     }
 
     /// Call `self` with the specified arguments.
@@ -628,7 +628,7 @@ public extension PythonObject {
     func dynamicallyCall(
         withKeywordArguments args:
         KeyValuePairs<String, PythonConvertible> = [:]) -> PythonObject {
-        return try? throwing.dynamicallyCall(withKeywordArguments: args) ?? PythonObject(stringLiteral: "")
+        return (try? throwing.dynamicallyCall(withArguments: args)) ?? PythonObject(stringLiteral: "PythonKitError")
     }
 
     /// Alias for the function above that lets the caller dynamically construct the argument list, without using a dictionary literal.
@@ -637,7 +637,7 @@ public extension PythonObject {
     func dynamicallyCall(
         withKeywordArguments args:
         [(key: String, value: PythonConvertible)] = []) -> PythonObject {
-        return try? throwing.dynamicallyCall(withKeywordArguments: args) ?? PythonObject(stringLiteral: "")
+        return (try? throwing.dynamicallyCall(withArguments: args)) ?? PythonObject(stringLiteral: "PythonKitError")
     }
 }
 
